@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/FizzBuzz.iml" filepath="$PROJECT_DIR$/.idea/FizzBuzz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Logic.iml" filepath="$PROJECT_DIR$/Logic.iml" />
     </modules>
   </component>
 </project>
