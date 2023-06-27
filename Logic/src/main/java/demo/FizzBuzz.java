@@ -1,3 +1,6 @@
+//Author: Levi
+//        jun/2023
+
 package demo;
 
 public class FizzBuzz {
@@ -12,6 +15,5 @@ public class FizzBuzz {
             };
             System.out.println(result);
         }
-
     }
 }
