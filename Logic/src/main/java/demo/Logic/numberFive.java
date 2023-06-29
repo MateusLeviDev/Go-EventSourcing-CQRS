@@ -1,7 +1,7 @@
 //Author: Levi
 //        jun/2023
 
-package demo;
+package demo.Logic;
 
 import java.util.ArrayList;
 import java.util.List;
