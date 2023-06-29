@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Array {
 
-    private int size;
+    private int size; //Manage the size of the array
     private String[] elements;
 
     public Array(int capacity) {
@@ -33,6 +33,7 @@ public class Array {
 //        }
 //    }
 
+    //Add an element to the end of the array
     public boolean addElement(String element) {
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
@@ -63,6 +64,7 @@ public class Array {
         return false;
     }
 
+    //get specific element
     public String findElement(int position) {
         if (!(position >= 0 && position < size)) {
             throw new IllegalArgumentException("Invalid");
@@ -70,9 +72,10 @@ public class Array {
         return this.elements[position];
     }
 
+    //if element exist in array
     public int findElement(String elemento) {
         for (int i = 0; i < this.size; i++) {
-            if (this.elements[i].equals(elemento)) {
+            if (this.elements[i].equals(elemento)) {       // LINEAR SEARCH
                 return i;
             }
         }
