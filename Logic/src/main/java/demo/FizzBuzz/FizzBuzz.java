@@ -1,7 +1,7 @@
 //Author: Levi
 //        jun/2023
 
-package demo;
+package demo.FizzBuzz;
 
 public class FizzBuzz {
     public static void main(String[] args) {
