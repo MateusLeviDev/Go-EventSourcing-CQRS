@@ -77,6 +77,17 @@ public class Array {
         return false;
     }
 
+    public void removeElement(int position) {
+        if (!(position >= 0 && position < size)) {
+            throw new IllegalArgumentException("Invalid");
+        }
+
+        for (int i = position; i < size - 1; i++) {      // B G D E F       ex: remove[1] = "g"
+            elements[i] = elements[i + 1];               // B D E F F       elements[1] = elements[2]...
+        }                                                // 0 1 2 3 4       size: 5
+        size--;
+    }
+
     //get specific element
     public String findElement(int position) {
         if (!(position >= 0 && position < size)) {
