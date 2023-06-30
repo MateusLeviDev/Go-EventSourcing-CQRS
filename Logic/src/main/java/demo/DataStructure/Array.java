@@ -35,6 +35,8 @@ public class Array {
 
     //Add an element to the end of the array
     public boolean addElement(String element) {
+        increaseCapacity();
+
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
             this.size++;
@@ -43,8 +45,20 @@ public class Array {
         return false;
     }
 
+    private void increaseCapacity() {
+        if (size == elements.length) {
+            String[] newElements = new String[elements.length * 2]; //Double the initial capacity
+            for (int i = 0; i < size; i++) {
+                newElements[i] = elements[i]; //for operator copies the elements from the old to the new
+            }
+            elements = newElements; //means that elements now == newElements. a referência do array elements é substituída pela referência do novo array newElements.
+        }
+    }
+
     //position at which the element will be added and the element to be added
     public boolean addElement(int position, String element) {
+        increaseCapacity();
+
         //verify if position is valid
         if (!(position >= 0 && position < size)) {
             throw new IllegalArgumentException("Invalid");
@@ -52,10 +66,9 @@ public class Array {
 
         // 0 1 2 3 4 5 6 size=5
         // b c e f g - -
-        for (int i=size-1; i>=position; i--) { //pt-br: posiçao i não pode receber a posição i. [5] -> [4]... [4] -> [3]
-            elements[i+1] = elements[i]; //move elements
+        for (int i = size - 1; i >= position; i--) { //pt-br: posiçao i não pode receber a posição i. [5] -> [4]... [4] -> [3]
+            elements[i + 1] = elements[i]; //move elements
         }
-
 
         //Atributing the element to the position
         this.elements[position] = element;
