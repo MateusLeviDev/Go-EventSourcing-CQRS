@@ -66,7 +66,7 @@ public class Array {
 
         // 0 1 2 3 4 5 6 size=5
         // b c e f g - -
-        for (int i = size - 1; i >= position; i--) { //pt-br: posiçao i não pode receber a posição i. [5] -> [4]... [4] -> [3]
+        for (int i = size - 1; i >= position; i--) { //pt-br: posiçao i não pode receber a posição i. [5] -> [4]... [4] -> [3]. >vai de trás pra frente<
             elements[i + 1] = elements[i]; //move elements
         }
 

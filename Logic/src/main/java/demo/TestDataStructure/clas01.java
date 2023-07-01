@@ -4,30 +4,23 @@
 package demo.TestDataStructure;
 
 import demo.DataStructure.Array;
+import demo.DataStructure.ArrayObject;
 
 public class clas01 {
 
     public static void main(String[] args) {
 
-        Array array = new Array(10);
-//        array.addElement("Element 1");
-//        array.addElement("Element 2");
-//        array.addElement("Element 3");
-//
-//        System.out.println(array.getSize());
-//        System.out.println(array);
-//        System.out.println(array.findElement(0));
+        ArrayObject arrayObject = new ArrayObject(3);
 
-        array.addElement("B");
-        array.addElement("C");
-        array.addElement("E");
-        array.addElement("F");
-        array.addElement("G");
+        Contact contact1 = new Contact("Levi", "1123546", "mateus@gmail");
+        Contact contact2 = new Contact("Levi", "1123546", "mateus@gmail");
+        Contact contact3 = new Contact("Levi", "1123546", "mateus@gmail");
 
-        System.out.println(array);
+        arrayObject.addElement(contact1);
+        arrayObject.addElement(contact2);
+        arrayObject.addElement(contact3);
 
-        array.addElement(0, "A");
+        System.out.println(arrayObject);
 
-        System.out.println(array);
     }
 }
