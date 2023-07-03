@@ -67,6 +67,13 @@ public class Lista<T> {
         size--;
     }
 
+    public void remove(T element) {
+        int position = findElement(element);
+        if (position > -1) {
+            removeElement(position);
+        }
+    }
+
     //get specific element
     public Object findElement(int position) {
         if (!(position >= 0 && position < size)) {
