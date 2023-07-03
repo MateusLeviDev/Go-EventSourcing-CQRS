@@ -76,17 +76,26 @@ public class Lista<T> {
     }
 
     //if element exist in array
-    public int findElement(T elemento) {
+    public int findElement(T element) {
         for (int i = 0; i < this.size; i++) {
-            if (this.elements[i].equals(elemento)) {       // LINEAR SEARCH
+            if (this.elements[i].equals(element)) {       // LINEAR SEARCH
                 return i;
             }
         }
         return -1;
     }
 
-    public boolean contains(T elemento) {
-        return findElement(elemento) > -1;
+    public boolean contains(T element) {
+        return findElement(element) > -1;
+    }
+
+    public int lastIndexOf(T element) {
+        for (int i = size - 1; i >= 0 ; i--) {
+            if (elements[i].equals(element)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public int getSize() {
