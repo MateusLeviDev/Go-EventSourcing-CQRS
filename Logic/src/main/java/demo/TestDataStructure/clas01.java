@@ -4,22 +4,39 @@
 package demo.TestDataStructure;
 
 import demo.DataStructure.ArrayObject;
+import demo.DataStructure.Lista;
+
+import java.util.ArrayList;
 
 public class clas01 {
 
     public static void main(String[] args) {
 
-        ArrayObject arrayObject = new ArrayObject(3);
+        ArrayList<String> arrayList = new ArrayList<>();
 
-        Contact contact1 = new Contact("Levi", "1123546", "mateus@gmail");
-        Contact contact2 = new Contact("Levi", "1123546", "mateus@gmail");
-        Contact contact3 = new Contact("Levi", "1123546", "mateus@gmail");
+        arrayList.add("A");
+        arrayList.add("B");
+        arrayList.add("C");
 
-        arrayObject.addElement(contact1);
-        arrayObject.addElement(contact2);
-        arrayObject.addElement(contact3);
+        System.out.println(arrayList);
 
-        System.out.println(arrayObject);
+        arrayList.add(0, "As");
+
+        System.out.println(arrayList);
+
+        boolean existe = arrayList.contains("A");
+        if (existe) {
+            System.out.println("Existe");
+        } else {
+            System.out.println("Não existe");
+        }
+
+        int pos = arrayList.indexOf("As");
+        if (pos > -1) {
+            System.out.println("Existe no array");
+        } else {
+            System.out.println("Não existe no array");
+        }
 
     }
 }
