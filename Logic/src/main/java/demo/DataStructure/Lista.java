@@ -85,6 +85,10 @@ public class Lista<T> {
         return -1;
     }
 
+    public boolean contains(T elemento) {
+        return findElement(elemento) > -1;
+    }
+
     public int getSize() {
         return size;
     }
