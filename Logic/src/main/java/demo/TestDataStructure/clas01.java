@@ -3,7 +3,6 @@
 
 package demo.TestDataStructure;
 
-import demo.DataStructure.Array;
 import demo.DataStructure.ArrayObject;
 
 public class clas01 {
