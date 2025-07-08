@@ -3,10 +3,10 @@ module github.com/MateusLeviDev/Go-EventSourcing-CQRS
 go 1.23.1
 
 require (
-	github.com/AleksK1NG/es-microservice v0.0.0-20220228063430-759f47e221dd
 	github.com/EventStore/EventStore-Client-Go v1.0.2
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/pkg/errors v0.9.1
+	github.com/satori/go.uuid v1.2.0
 	github.com/spf13/viper v1.20.1
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
 	go.mongodb.org/mongo-driver v1.17.4
@@ -14,6 +14,7 @@ require (
 )
 
 require (
+	github.com/HdrHistogram/hdrhistogram-go v1.1.2 // indirect
 	github.com/fsnotify/fsnotify v1.8.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
 	github.com/gofrs/uuid v4.2.0+incompatible // indirect

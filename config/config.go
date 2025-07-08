@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/constants"
+	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/eventstroredb"
 	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/logger"
 	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/mongodb"
 	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/probes"
@@ -26,13 +27,14 @@ func init() {
 }
 
 type Config struct {
-	ServiceName      string           `mapstructure:"serviceName"`
-	Logger           *logger.Config   `mapstructure:"logger"`
-	GRPC             GRPC             `mapstructure:"grpc"`
-	Mongo            *mongodb.Config  `mapstructure:"mongo"`
-	MongoCollections MongoCollections `mapstructure:"mongoCollections"`
-	Probes           probes.Config    `mapstructure:"probes"`
-	Jaeger           *tracing.Config  `mapstructure:"jaeger"`
+	ServiceName      string                         `mapstructure:"serviceName"`
+	Logger           *logger.Config                 `mapstructure:"logger"`
+	GRPC             GRPC                           `mapstructure:"grpc"`
+	Mongo            *mongodb.Config                `mapstructure:"mongo"`
+	MongoCollections MongoCollections               `mapstructure:"mongoCollections"`
+	Probes           probes.Config                  `mapstructure:"probes"`
+	Jaeger           *tracing.Config                `mapstructure:"jaeger"`
+	EventStoreConfig eventstroredb.EventStoreConfig `mapstructure:"eventStoreConfig"`
 }
 
 type GRPC struct {
