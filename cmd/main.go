@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/config"
+	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/internal/server"
 	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/logger"
 )
 
@@ -27,4 +28,5 @@ func main() {
 
 	appLogger.Infof("CFG: %+v", cfg)
 	appLogger.Info("Success =D")
+	appLogger.Fatal(server.NewServer(cfg, appLogger).Run())
 }
