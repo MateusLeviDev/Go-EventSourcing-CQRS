@@ -8,8 +8,12 @@ import (
 
 	"github.com/EventStore/EventStore-Client-Go/esdb"
 	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/config"
+	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/internal/order/service"
+	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/es/store"
+	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/eventstroredb"
 	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/interceptors"
 	"github.com/MateusLeviDev/Go-EventSourcing-CQRS/pkg/logger"
+	"github.com/go-playground/validator"
 )
 
 type server struct {
@@ -17,10 +21,12 @@ type server struct {
 	log logger.Logger
 	db  *esdb.Client
 	im  interceptors.InterceptorManager
+	os  *service.OrderService
+	v   *validator.Validate
 }
 
 func NewServer(cfg *config.Config, log logger.Logger) *server {
-	return &server{cfg: cfg, log: log}
+	return &server{cfg: cfg, log: log, v: validator.New()}
 }
 
 func (s *server) Run() error {
@@ -28,6 +34,13 @@ func (s *server) Run() error {
 	defer cancel()
 
 	s.im = interceptors.NewInterceptorManager(s.log)
+
+	db, err := eventstroredb.NewEventStoreDB(s.cfg.EventStoreConfig)
+	if err != nil {
+		return err
+	}
+	aggregateStore := store.NewAggregatorStore(s.log, db)
+	s.os = service.NewOrderService(s.log, s.cfg, aggregateStore)
 
 	closeGrpcServer, grpcServer, err := s.newOrderGrpcServer()
 
@@ -41,5 +54,4 @@ func (s *server) Run() error {
 	grpcServer.GracefulStop()
 	s.log.Info("Order server exited properly")
 	return nil
-
 }

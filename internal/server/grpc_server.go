@@ -43,8 +43,7 @@ func (s *server) newOrderGrpcServer() (func() error, *grpc.Server, error) {
 			grpc_prometheus.UnaryServerInterceptor,
 			grpc_recovery.UnaryServerInterceptor(),
 			s.im.Logger,
-		),
-		),
+		)),
 	)
 
 	grpcService := grpc2.NewOrderGrpcService(s.log)

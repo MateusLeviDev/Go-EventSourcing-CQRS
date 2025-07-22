@@ -21,9 +21,7 @@ import (
 var configPath string
 
 func init() {
-
 	flag.StringVar(&configPath, "config", "", "ES microservice config path")
-
 }
 
 type Config struct {
@@ -58,7 +56,6 @@ func InitConfig() (*Config, error) {
 				return nil, errors.Wrap(err, "os.Getwd")
 			}
 			configPath = fmt.Sprintf("%s/config/config.yaml", getwd)
-
 		}
 	}
 
@@ -97,5 +94,4 @@ func InitConfig() (*Config, error) {
 	}
 
 	return cfg, nil
-
 }
